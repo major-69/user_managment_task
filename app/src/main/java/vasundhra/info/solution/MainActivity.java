@@ -17,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     String email;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        getUserData(email);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());

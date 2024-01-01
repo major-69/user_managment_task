@@ -172,6 +172,25 @@ public class NewDatabaseHelper extends SQLiteOpenHelper {
 
         return userList;
     }
+
+    public int updateData(String name, String email, String password, String dob, String gender){
+
+        boolean updateStatus = false;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_NAME, name);
+        contentValues.put(COLUMN_EMAIL, email);
+        contentValues.put(COLUMN_PASS, password);
+        contentValues.put(COLUMN_GEN, gender);
+        contentValues.put(COLUMN_DOB, dob);
+
+        int update = db.update("datatable",contentValues,"email=?",new String[]{email});
+
+        return update;
+    }
+
 }
 
 
