@@ -98,7 +98,6 @@ public class NewDatabaseHelper extends SQLiteOpenHelper {
         boolean exists  = cursor.moveToFirst();
         cursor.close();
         db.close();
-
         return exists;
     }
 
@@ -189,6 +188,14 @@ public class NewDatabaseHelper extends SQLiteOpenHelper {
         int update = db.update("datatable",contentValues,"email=?",new String[]{email});
 
         return update;
+    }
+
+    public int delete(String email){
+        SQLiteDatabase db  = this.getWritableDatabase();
+
+        int result = db.delete("datatable","email=?",new String[]{email});
+        db.close();
+        return result;
     }
 
 }
