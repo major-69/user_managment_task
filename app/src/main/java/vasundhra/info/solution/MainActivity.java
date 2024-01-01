@@ -28,8 +28,13 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         email = getIntent().getStringExtra("email");
-
         getUserData(email);
+        binding.dashBoardToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         binding.updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
